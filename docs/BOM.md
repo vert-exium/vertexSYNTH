@@ -1,3 +1,5 @@
+# Bill of Materials
+## See notes, may be unfinished.
 | **Category**    | **Name**                      | **Qty**                        | **Unit Price $** | **Total $** | **Shop** | **Link** | **Notes/explanation/specs**       |
 |-----------------|-------------------------------|--------------------------------|------------------|-------------|----------|----------|-----------------------------------|
 | Processing      | Teensy 4.1                    | 1                              |                  |             |          |          | Without Pins!                     |
