@@ -3,7 +3,7 @@ title: "vertex SYNTH"
 github: "https://github.com/vert-exium/vertexSYNTH"
 description: "A custom aluminum/acrylic/PETG polyphonic synth. I've always wanted a synth but they're expensive and it would be amazing to make one that looks good while functioning well! Runs on a Teensy 4.1 and connects to a MIDI keyboard"
 created_at: "2026-11-15"
-total_time: "18h 48m"
+total_time: "22h 12m"
 ---
 
 # November 15, 2026: Built the CAD and ideated
@@ -137,3 +137,54 @@ At the top left, there is the pins for the Teensy. Buttons and all MCP connectio
 That's pretty much it for the schematic, it's not that complicated but it's pretty repetitive in some spots.
 
 **Total time spent: 2h 36m**
+
+# November 21, 2026: Started routing PCB
+
+I'm starting the actual routing of the PCB now!
+
+First, I imported the components from my schematic
+![](https://fabricate.hackclub-assets.com/987ee694a168b238b62ca38ef7bd76b62beec2d5563433575e9da93587e3b33b/image-png/image.png)
+
+Next, I made a rectangle as reference for the acrylic panel (the outer rectangle) and the edge of the pcb (on Edge.cuts layer, the smaller rectangle) which defines the actual size of the PCB
+
+![](https://fabricate.hackclub-assets.com/2fcf2f8a34aa98271502c36585bbdc48b4d0b114bcfee54c23a038a9cc71726f/image-png/image.png)
+
+I also added holes for the bottom 6 buttons here
+
+![](https://fabricate.hackclub-assets.com/1dbb378bfdd7c019a5d70eace22561106ecdb9be4097cce3523c043f0f2622d5/image-png/image.png)
+
+Then, I laid out the position of the 24 grid encoders. It took a pretty long time like ~45min because I had to refer to my CAD to get the center coordinate of the holes, and then I translated that to KiCad. In KiCad I made the origin the bottom left of the acrylic reference rectangle so I had to account for that too. It wasn't too bad since several encoders shared the same Y level, and they just varied in the X levels, as it was just a grid. The order of the number on the encoders look weird, but it corresponds perfectly to the function of the encoders. For example, encoders 5-8 are for the filter column, while 21-24 are for aux stuff like arp rate, delay, reverb, etc.
+
+![](https://fabricate.hackclub-assets.com/6b3fe5d9280d6bb70fa61d671682cd1e39b44c6fdfea1f6542510d56fbbe9f70/image-png/image.png)
+
+Next, I completed laying out the front side components. The last encoder (not in the grid), the volume potentiometer, the pads for the buttons, and then the OLED headers and holes for them. Most of it was pretty quick after I translated the grid to coordinates, but it still took a really long time because I wanted to make sure everything was precisely and correctly placed. It looks pretty good now and all that's left is to lay the back side components out (and route everything) before final testing and double checking everything!
+
+![](https://fabricate.hackclub-assets.com/e9a45e214bbfd223b9757489b424068eb1eb4231eee1359a39d13d86455d54c6/image-png/image.png)
+
+When I started laying the back layer, I ran into an issue. On the audio shield and teensy pins, they overlap with the OLED and pot/encoder pins. I had to shift them over in order for everything to fit without issue
+
+![](https://fabricate.hackclub-assets.com/ad981191810e0a2eb8d14849b95bdd55a9ecf07c22860e351eff096ca110a867/image-png/image.png)
+
+After I finished placing them, I noticed a few things were overlapping or didn't look super right. I ran the Design Rules Checker, and I noticed many errors. Most were because nothing was connected, but a few had to do with overlapping parts.
+
+![](https://fabricate.hackclub-assets.com/0afba2179a05b014457cccf017fc5348a41e4389ea8f529487d7a688c9772ec1/image-png/image.png)
+
+To fix these, I ended up having to implement a few fixes
+1: I rotated all of the MCP chips so they're horizontal, there's enough space on the PCB for them (see the top chip, it's horizontal and not colliding with any contacts, but the ones below have conflicts)
+
+![](https://fabricate.hackclub-assets.com/fa053630b6e31a98941cb9af5cfea3bd3d8bb6876e020542880e6ed111c25f54/image-png/image.png)
+
+After that, some of the caps (e.g. C1) were colliding with the chips, so I had to move them too, and rotate them vertically. They sit pretty close to the chips now
+
+![](https://fabricate.hackclub-assets.com/5ffa9355b80cd1c6c99bb5a9e0d1bc7000e4d5e66ad38c9630c2192a1602374d/image-png/image.png)
+
+Another fix was increasing the clearance for the button pads, before they were sitting inside of the button holes. You can see the before/after
+
+![](https://fabricate.hackclub-assets.com/de6d627e0959f4927337a217559a9ffcb3ac219cd719b70d31b3ed9bfc974e70/image-png/image.png)
+
+
+I had to move a bunch of small parts around, but I ended up with this, which I'm pretty happy with. I'm going to pause for today but I only have ~30min - 1hr work to get a decent prototype finished
+
+![](https://fabricate.hackclub-assets.com/749d3b2f7b33eaa0ccf467e4235f774da0c25c222c321e448af6f848156adb3f/image-png/image.png)
+
+**Total time spent: 3h 24m**
