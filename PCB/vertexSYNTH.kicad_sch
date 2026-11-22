@@ -3668,6 +3668,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "vertex SYNTH schematic V1\n"
+		(exclude_from_sim yes)
+		(at 323.088 276.606 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "942568cc-a6f4-4a06-9842-d2f803d0f203")
+	)
 	(junction
 		(at 332.74 85.09)
 		(diameter 0)
@@ -13873,7 +13883,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 98.7552 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -15372,7 +15382,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 84.7852 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -20474,7 +20484,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 70.8152 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -27239,7 +27249,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 56.8452 167.64 0)
 			(hide yes)
 			(show_name no)
