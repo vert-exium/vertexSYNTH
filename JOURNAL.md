@@ -3,13 +3,14 @@ title: "vertex SYNTH"
 github: "https://github.com/vert-exium/vertexSYNTH"
 description: "A custom aluminum/acrylic/PETG polyphonic synth. I've always wanted a synth but they're expensive and it would be amazing to make one that looks good while functioning well! Runs on a Teensy 4.1 and connects to a MIDI keyboard"
 created_at: "2026-11-15"
-total_time: "22h 12m"
+total_time: "29h 54m"
 ---
 
 # November 15, 2026: Built the CAD and ideated
 
 Today I lined out the main project and started thinking about components and the general theme.
-I also finished the CAD for the side legs, main body, and acrylic top (without any components) 
+I also finished the CAD for the side legs, main body, and acrylic top (without any components).
+I took a while and really tried to build a perfect foundation, I played around with different sizes, shapes, fillets, etc. before settling on this design. The acrylic top plate just screws into the top with heat set inserts and same for the side panels 
 ![Basic prototype of the general shape](https://fabricate.hackclub-assets.com/ee888ea4fead4f4e9051a5031712930828c91aed1aab11e7899b14ed08b14be1/image-png/finishedCADBody.png)
 ![Early on](https://fabricate.hackclub-assets.com/8e927556d630694e41a753e62906b80fe415c49c5eb880fba4bafadcefbcf230/image-png/wipCAD1.png)
 ![Started IO holes](https://fabricate.hackclub-assets.com/5ec7f192be43d21ad69ab27cb530cbf847a39947d1def6d44c3d19714fbad1e1/image-png/wipCAD2.png)
@@ -20,7 +21,7 @@ I also finished the CAD for the side legs, main body, and acrylic top (without a
 
 # November 17, 2026: Started working on BOM & updated CAD
 
-I started working on the bill of materials! I haven't found exact links or finalized the list, but I found most of what I need and thought about how everything will connect together. Tomorrow I will work more on the BOM and I might CAD a bit. All I did for the CAD today was add holes on the top acrylic panel where components will go, eventually my goal is to model the actual components there too.
+I started working on the bill of materials! I haven't found exact links or finalized the list, but I found most of what I need and thought about how everything will connect together. It's built on a Teensy 4.1 with an Audio Shield which allows it to process high quality audio. The Teensy is a popular choice for audio projects because of how well it can process high quality signals, I think it supports up to 44.1khz which is plenty for my use. I also picked buttons, encoders, etc. and some miscellaneous parts and accessories. Tomorrow I will work more on the BOM and I might CAD a bit. All I did for the CAD today was add holes on the top acrylic panel where components will go, eventually my goal is to model the actual components there too.
 
 ![](https://fabricate.hackclub-assets.com/fa7ee787c9b6556cb5067080cfb1973e9de986a12077c2e730b50592ca0aa1d7/image-png/image.png)
 ![](https://fabricate.hackclub-assets.com/efd31a86aca2ba1132e8881365de4f37dde64e40b58ea9954068c7922d3e3233/image-png/image.png)
@@ -76,13 +77,13 @@ Pictures of various stages:
 
 # November 21, 2026: Started PCB Schematic
 
-I started the PCB schematic! First I had to make sure I didn't need any external KiCad libraries. After that, I started routing the schematic. I completely finished the two 1x24 rows of pins on the Teensy 4.1. Next I need to route the audio shield connections and pots, encoders, buttons, etc. before I route the physical PCB. It was a bit hard to do because I haven't used KiCad much and I haven't used it in a while, but I think I managed to figure it out pretty well.
+I started the PCB schematic! First I had to make sure I didn't need any external KiCad libraries. After that, I started routing the schematic. I completely finished the two 1x24 rows of pins on the Teensy 4.1. Next I need to route the audio shield connections and pots, encoders, buttons, etc. before I route the physical PCB. It was a bit hard to do because I haven't used KiCad much and I haven't used it in a while, but I think I managed to figure it out pretty well. I tried to label everything clearly so it would be easier down the line, so all of the buttons are routed as BTN_ACTION for example.
 
 ![](https://fabricate.hackclub-assets.com/f3f2f382d2bb5dee4495473ae680d53587a5bf64e20854a2944ce936ff667b86/image-png/image.png)
 ![](https://fabricate.hackclub-assets.com/e4eb8e6e7ba769475df1ad268d4d56d6868c0a9866f0bff46d03a44d205abf9c/image-png/image.png)
 ![](https://fabricate.hackclub-assets.com/d66cda1963d7dd340ae5438fc5b4990b8e821114c07b00bdbac4868adcece1da/image-png/image.png)
 
-**Total time spent: 1h 42m**
+**Total time spent: 1h 30m**
 
 # November 21, 2026: Continued working on PCB schematic
 
@@ -138,7 +139,7 @@ That's pretty much it for the schematic, it's not that complicated but it's pret
 
 **Total time spent: 2h 36m**
 
-# November 21, 2026: Started routing PCB
+# November 21, 2026: Routed the PCB
 
 I'm starting the actual routing of the PCB now!
 
@@ -188,3 +189,113 @@ I had to move a bunch of small parts around, but I ended up with this, which I'm
 ![](https://fabricate.hackclub-assets.com/749d3b2f7b33eaa0ccf467e4235f774da0c25c222c321e448af6f848156adb3f/image-png/image.png)
 
 **Total time spent: 3h 24m**
+
+# November 22, 2026: Final touches on PCB
+
+Before routing the connections, I decided to add a few small touches. I moved any silkscreen text that was colliding/outside of the board to a better place, and I added some cool text as well as rounding the PCB corners.
+
+![](https://fabricate.hackclub-assets.com/cced1c0c7356e5d186266ece3ed788b71d69768ffe96a0b493c573c987890fdf/image-png/image.png)
+![](https://fabricate.hackclub-assets.com/b6270b0a270869cfcc2e85bd277f085478218bb4c6b4666be15b825f5390d13f/image-png/image.png)
+
+This is the full PCB before routing
+
+![](https://fabricate.hackclub-assets.com/3921e7d443f2ea0e533066cfafb6dc1ca27d1b02633f6e07f562ba875f8b8c01/image-png/image.png)
+
+Also running DRC before routing, the only violations are edges of the silkscreen hanging off the PCB. This is fine and it's just visual
+
+![](https://fabricate.hackclub-assets.com/bbc7dcdc04a56da55138be693b4680ae9556490d81f4293d3821a81e4834622b/image-png/image.png)
+
+Also set up the view before routing here
+
+![](https://fabricate.hackclub-assets.com/f98d86a58b954b2a79fea158109795453fb8bdc452d1683b246de93a6376b809/image-png/image.png)
+
+**Total time spent: 1h 6m**
+
+# November 22, 2026: Routed the PCB
+
+After the last journal entry, where I set up for routing, I started routing the PCB. As I did that, I realized the way I set the schematic up, it would result in a mess of routing, so I had to reassign the encoder pins for the U1 MCP chip.
+
+Before
+![](https://fabricate.hackclub-assets.com/2275a41d4f049ac11403275e6dc5e20f5590c444596c2512cc0b46dd925cf1f1/image-png/image.png)
+
+After
+
+![](https://fabricate.hackclub-assets.com/5d8598e4c44c1926806f7e12ab3de540e56a2ad7279dabeff28792fb7c09ea29/image-png/image.png)
+
+It's sloppily wired but it should work for the PCB routing.
+Then, I started routing the PCB. I made a small mistake on the schematic, where encoder 3 had connections touching, so I also had to reroute that after noticing it.
+
+![](https://fabricate.hackclub-assets.com/3cfdaab46ce94b977a4468e88c54dfb5ebf62b1a91581a347900a55a15c73233/image-png/image.png)
+
+It turns out that I have to rewire basically all of the MCP blocks because of how the chips are oriented on the physical board. Right now, nothing will connect correctly. Instead of messily rewiring like for U1, I decided to use labels to clean everything up!
+Before/after for U5, for example
+
+![](https://fabricate.hackclub-assets.com/2a4d8f514d709f0558ee2192f17cd5509fb5369823108444fcde9cd1595873b9/image-png/image.png)
+
+
+Before I did this for all 4 MCP chips, just to make sure this actually improved the routing and I did everything correctly, I did a test routing of U5. Luckily everything worked, and while the routing wasn't the absolute cleanest, it was a LOT better and more importantly possible to route.
+
+![](https://fabricate.hackclub-assets.com/dac6ea02283d6c0029622bfebe397d27a6d099a2c94ac2774c66d16df8fe428f/image-png/image.png)
+
+I continued this cycle. Basically I would wire the schematic for one chip (e.g. U6) and then I would update the PCB and route it to make sure everything worked correctly. I also moved many encoders to different chips so they were close to them instead of spread out (the order of the encoders is a bit weird, so they're all over the place). This led to much cleaner overall connections. You can see the schematic and routing on the encoders after this. The actual schematic is a bit messy, since now the four encoders next to each chip don't necessarily serve that chip, they might be on a different one.
+
+Schematic:
+![](https://fabricate.hackclub-assets.com/9d4bf0e7c11843ac4474b3a5706b457b56e42fd1b640be18bd375b408542922d/image-png/image.png)
+
+Routed PCB so far:
+
+![](https://fabricate.hackclub-assets.com/3270b53dfaa45d6a57652d911550ae392a5e68142b3c2656a7fd0b1bdcf01a59/image-png/image.png)
+
+Then, I started the front side routing. I first started by routing the 3V3 connection. From the Teensy, it splits off to the left and right, and several smaller branches branch off to each of the 6 chips, plus capacitors, the last encoder, etc.
+
+This is the front side currently:
+
+![](https://fabricate.hackclub-assets.com/b17d05b88a0b4a70aa644a805e3a6a333dda42d1326e2ee58e58045422a20d06/image-png/image.png)
+
+I started the I2C bus routing, as you can see from the highlighted connections. They go from the two pull up resistors to each chip (they will later, the pic below only has one routed). 
+
+![](https://fabricate.hackclub-assets.com/b15e64cd210a4300a9b0dd2cc56c817b90ef02f329feb945ca07a0163cc84841/image-png/image.png)
+
+I2C bus now done for the left side, just two connections per chip, plus connections to the pull up resistors.
+
+I then repeated that for the right side, so all of the I2C buses are routed! It was fairly simple because there aren't too many total connections right now but it'll probably get harder to route as time goes on.
+
+![](https://fabricate.hackclub-assets.com/62a99f314303f87b7a323455f48ab4d31b84e3a6df082637886e93aa4c5ecadc/image-png/image.png)
+
+
+I then routed the six INT lines, one per chip. I started on the right side and then did the left. It was pretty easy to route and I tried to keep it clean.
+
+Picture of the full board so far
+
+![](https://fabricate.hackclub-assets.com/4952cc449c36ca5b3c84d4452b69d2a5bd6959b382205cdf53449b4d292d4ad5/image-png/image.png)
+
+After that, I decided to remove some of the connections on the audio shield, because we aren't stacking it on top of the Teensy, so it'll simplify PCB routing. All connections on the Teensy are still the same, but it's just a lot simpler on the audio shield rows now
+
+![](https://fabricate.hackclub-assets.com/6be048cd224797b13e277a368f43d737b37561eda3b15871839cdc8894f0c58f/image-png/image.png)
+
+Then, I just finished routing the rest of the components. I had about 30-40 more connections to route, including buttons and other data I didn't connect before. I ended up having to use a decent amount of vias per route, and I could probably have routed it more cleanly, but it works well enough. 
+
+I ended up with this for the board. I had to double check that everything would fit correctly and I ran Design Rules Checker in KiCad to make sure I didn't miss anything important. I'm really happy with how I routed everything, even if it's a bit messy in some areas.
+
+![](https://fabricate.hackclub-assets.com/8a8d923faf3290556a568c35248ec6819b815d1d586d21022697f91a992a6864/image-png/image.png)
+
+Since there are so many GND connections, it would be really tedious and an eyesore to route them manually. Instead I'm doing a ground pour which fills in the rest of the board with copper that's connected to ground. 
+
+Example of the settings I used: I placed two, one for the bottom layer, and one for the front/top layer
+
+![](https://fabricate.hackclub-assets.com/57f59e8508b58520e3fe192ee72f3dbff49738aa17ed190cd8ab5afaa0b77d5b/image-png/image.png)
+
+Preview of the filled board:
+
+![](https://fabricate.hackclub-assets.com/b19545e5fbe85c40b7bc2acf3730e08d3ad8acd7532140dcdf2294ebdb631571/image-png/image.png)
+
+Before and after of Design Rules checker, I still have a few errors to fix tomorrow, but this effectively knocked out 90 errors (unconnected GND connections)
+
+![](https://fabricate.hackclub-assets.com/831d323cddf1460b0fae47980031026dcfa33432f1a7898a3db3de65b6f4f96e/image-png/image.png)
+
+After
+![](https://fabricate.hackclub-assets.com/d8eac92cce28f0dc5c4dd23876b072595022eba5d2c99f4f76bf7c9cb407176d/image-png/image.png)
+
+That's all for today, this was a really long day but I'm really happy with the result and I'm glad that I'm finishing the PCB tomorrow!
+
+**Total time spent: 6h 48m**
