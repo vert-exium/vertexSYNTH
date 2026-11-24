@@ -3670,7 +3670,7 @@
 	)
 	(text "vertex SYNTH schematic V1\n"
 		(exclude_from_sim yes)
-		(at 323.088 276.606 0)
+		(at 29.21 18.034 0)
 		(effects
 			(font
 				(size 1.27 1.27)

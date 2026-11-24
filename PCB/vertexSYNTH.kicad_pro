@@ -548,9 +548,9 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "production/v1/gerbers/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "vertexSYNTH.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
