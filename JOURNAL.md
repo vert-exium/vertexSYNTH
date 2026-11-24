@@ -3,13 +3,13 @@ title: "vertex SYNTH"
 github: "https://github.com/vert-exium/vertexSYNTH"
 description: "A custom aluminum/acrylic/PETG polyphonic synth. I've always wanted a synth but they're expensive and it would be amazing to make one that looks good while functioning well! Runs on a Teensy 4.1 and connects to a MIDI keyboard"
 created_at: "2026-11-15"
-total_time: "29h 54m"
+total_time: "31h 18m"
 ---
 
 # November 15, 2026: Built the CAD and ideated
 
 Today I lined out the main project and started thinking about components and the general theme.
-I also finished the CAD for the side legs, main body, and acrylic top (without any components).
+I also finished the CAD for the side legs, main body, and acrylic top (without any components) <- see last pic.
 I took a while and really tried to build a perfect foundation, I played around with different sizes, shapes, fillets, etc. before settling on this design. The acrylic top plate just screws into the top with heat set inserts and same for the side panels 
 ![Basic prototype of the general shape](https://fabricate.hackclub-assets.com/ee888ea4fead4f4e9051a5031712930828c91aed1aab11e7899b14ed08b14be1/image-png/finishedCADBody.png)
 ![Early on](https://fabricate.hackclub-assets.com/8e927556d630694e41a753e62906b80fe415c49c5eb880fba4bafadcefbcf230/image-png/wipCAD1.png)
@@ -17,7 +17,7 @@ I took a while and really tried to build a perfect foundation, I played around w
 ![Finished rear IO](https://fabricate.hackclub-assets.com/5cd5f650bc91217ab0def8d4b932e57a55208bbbe4a6d8a4788873c2dbd835e0/image-png/wipCAD3.png)
 ![Assembled body](https://fabricate.hackclub-assets.com/46007c847c53526c8271099e32bb999fb514834f6462575d20a1ed42321a0732/image-png/wipCADFinishedProto.png)
 
-**Total time spent: 3h 6m**
+**Total time spent: 1h 54m**
 
 # November 17, 2026: Started working on BOM & updated CAD
 
@@ -139,7 +139,7 @@ That's pretty much it for the schematic, it's not that complicated but it's pret
 
 **Total time spent: 2h 36m**
 
-# November 21, 2026: Routed the PCB
+# November 21, 2026: Prepared to route PCB
 
 I'm starting the actual routing of the PCB now!
 
@@ -190,7 +190,7 @@ I had to move a bunch of small parts around, but I ended up with this, which I'm
 
 **Total time spent: 3h 24m**
 
-# November 22, 2026: Final touches on PCB
+# November 22, 2026: Final touches on PCB before routing
 
 Before routing the connections, I decided to add a few small touches. I moved any silkscreen text that was colliding/outside of the board to a better place, and I added some cool text as well as rounding the PCB corners.
 
@@ -299,3 +299,55 @@ After
 That's all for today, this was a really long day but I'm really happy with the result and I'm glad that I'm finishing the PCB tomorrow!
 
 **Total time spent: 6h 48m**
+
+# November 23, 2026: Finished up PCB
+
+Finally after many hours I finished a prototype of the PCB!
+
+First I handled any final errors/warnings. For example, the GND pin for encoder 25 wasn't connected, so I had to make a short connection and place a via. 
+
+![](https://fabricate.hackclub-assets.com/7a74f4f77e102149361294102edc20d85cb06b5e78b0719dfeb60c0216bebf60/image-png/image.png)
+
+I also placed vias every once in a while between the top/bottom to slightly reduce noise, it isn't strictly necessary but I think it'll help a bit especially with audio. After dealing with some final issues, specifically having to place vias in specific pockets to make sure everything was grounded, we can finally run DRC one more time and see zero errors. The two violations are just components near the edge, and the safety area overhangs the PCB slightly, but it won't cause any issues.
+
+![](https://fabricate.hackclub-assets.com/2d16d737e289ba75d8522cd74cc1cbde6e6b8957b4e112c76bb5ad8912843e6d/image-png/image.png)
+
+A 3D view of the PCB
+
+![](https://fabricate.hackclub-assets.com/618af7bd3184ff45e98961830c6ca1529594177a9323c608c17c3d8b3c8fce68/image-png/image.png)
+
+![](https://fabricate.hackclub-assets.com/f12b2d5b4094ca3edd64047ce03099e2ef920d78505f4dafbac470d984fae24f/image-png/image.png)
+
+Now to finish up the PCB, we need to export the STEP file to check in Onshape, and also export the production files (gerbers)
+
+I started by exporting the PCB as a STEP and importing it into my Onshape assembly (pic w/o the body). I ran into some issues, because I had to offset it along the Y axis, but several parts weren't perfectly lined up.
+
+![](https://fabricate.hackclub-assets.com/c2524d285984276bfef3baf0e8856cb667248a2f4263bcba476416614322175b/image-png/image.png)
+
+Examples of parts not lining up
+
+![](https://fabricate.hackclub-assets.com/5093cdf4cf48dd5409659cd855e800213953d89db9493ab3256780c2802d4cbc/image-png/image.png)
+![](https://fabricate.hackclub-assets.com/70fe8956a16ca14b0013952e81a57bb6667e6684b4becedccaf76c19525b112c/image-png/image.png)
+
+
+Unfortunately I wasted ~30 min trying to solve this. I think the issue was when I selected the fastened mate's connectors in Onshape, I selected a connector on the board that was offset from the actual middle. When I used one of the button cutouts, everything aligned, except for the potentiometer.
+
+![](https://fabricate.hackclub-assets.com/11e2c07e54eaeccf76676e69cf29ccc9ad47743974e69ad163c408a86bdf94b9/image-png/image.png)
+
+Potentiometer offset
+
+![](https://fabricate.hackclub-assets.com/227f8963afb3f238d58c4fd96f6cd913a4107025c572bd8d788304ad901ffc82/image-png/image.png)
+
+This turned out to take a while to fix too. It turns out that I also incorrectly mated the pot to the acrylic top at first, so it wasn't in the middle of the hole. It's still slightly offset. For now I'm going to leave it, and I'm going to double check everything physically and measure before I laser cut the acrylic panel. Even if I miss something I can always take a drill bit and enlargen the hole slightly even if it'll look worse. Nothing else is offset right now, except for the buttons, but that's just another visual issue. I just had to fix the mate connector as usual, and everything ended up smooth!
+
+Pot now:
+
+![](https://fabricate.hackclub-assets.com/8138115ca98acbde4d268bd4f791eefc9103d0115bc7e25ec13c953541f596da/image-png/image.png)
+
+Button now (not exact bottom view but it's centered)
+
+![](https://fabricate.hackclub-assets.com/06bd32ca0ab7b69380b89c4a64ec3dc7654140e87f964049f79bf7f5fd152c51/image-png/image.png)
+
+I decided to also export the production files right now so they could be on Github because I'm pretty much done with the PCB anyways. I quickly reran DRC and everything was fine, so I exported the gerbers and zipped them as well. I'm glad it was a bit of a lighter day, and I finally got the PCB and CAD done. Next I'm going to start working on the firmware and try to get as much of it written/working as possible before shipping.
+
+**Total time spent: 2h 36m**
